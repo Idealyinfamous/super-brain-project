@@ -1,11 +1,12 @@
-from flask import Flask
+import sys
+import os
 
-app = Flask(__name__)
+# Append the project's root directory to the Python path
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(project_root)
 
-@app.route("/test")
-def test():
-    return {"test": ["thing1", "thing2", "thing3"]}
-
+from flask_server import app
+from flask_server.controllers import users, recipes
 
 if __name__ == "__main__":
     app.run(debug=True)
