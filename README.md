@@ -1,4 +1,4 @@
-# Programming Language Suggester 
+# Meal decider 
 
 #### By Jessica Perry
 
@@ -12,7 +12,7 @@
 
 ## Description
 
-Programming Language Suggester webpage  that asks future students a series of questions about themselves and provides a language suggestion based on their answers.
+
 
 ## Known Bugs
 
