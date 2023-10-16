@@ -1,9 +1,16 @@
 import React from 'react'
+import DropdownMenu from "../components/DropdownMenu";
+
 
 function HomePage() {
-  console.log("home page")
   return (
-    <div>HomePage</div>
+    <>
+        <h1>Hi, let's get dinner going!</h1>
+        <p>Brief Summary</p>
+        <div><DropdownMenu/></div>
+        <button>Try me</button>
+    </>
+
   )
 }
 
