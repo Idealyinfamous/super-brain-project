@@ -1,5 +1,6 @@
 import React from 'react'
 import DropdownMenu from "../components/DropdownMenu";
+import Passage from './PassagePage';
 
 
 function HomePage() {
