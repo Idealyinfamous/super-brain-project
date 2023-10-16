@@ -1,30 +1,20 @@
-import React, { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import SuggestedRecipe from "./pages/SuggestedRecipe";
+import RecipeDetails from "./pages/RecipeDetails";
+import MyRecipes from "./pages/MyRecipes";
 
-function App() {
-
-  const [data, setData] = useState([{}])
-  useEffect(() => {
-    fetch("/test").then(
-      res => res.json()
-    ).then(
-      data => {
-        setData(data)
-        console.log(data)
-      }
-    )
-  }, [])
-
+const App = () => {
   return (
-    <div>
-      {(typeof data.test === 'undefined') ? (
-        <p>Loading...</p>
-      ) : (
-        data.test.map((thing, i) => (
-          <p key={i}>{thing}</p>
-        ))
-      )}
-    </div>
-  )
-}
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />}/>
+        <Route path="suggested-recipe" element={<SuggestedRecipe />}/>
+        <Route path="recipe-details" element={<RecipeDetails />}/>
+        <Route path="my-recipes" element={<MyRecipes />}/>
+      </Routes>
+    </Router>
+  );
+};
 
-export default App
+export default App;
