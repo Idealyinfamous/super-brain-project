@@ -14,7 +14,7 @@ function SuggestedRecipe() {
     <Button variant = 'contained' size = 'medium' color = 'success' onClick ={()=> {  
         const jsConfetti = new JSConfetti();
         jsConfetti.addConfetti({
-      emojis: ["🚗", "✨", "💫", "🌸", "🐈"],
+      emojis: ["🥕","🌽","🍇","🍅","🍒","🍐"],
       confettiRadius: 8,
       confettiNumber: 400,
       });
@@ -30,17 +30,17 @@ function SuggestedRecipe() {
 
 //npm install js-confetti
 
-export default SuggestedRecipe
+// export default SuggestedRecipe
 
 
-function recipeChosen() {
-  const jsConfetti = new JSConfetti();
+// function recipeChosen() {
+//   const jsConfetti = new JSConfetti();
 
-  jsConfetti.addConfetti({
-    emojis: ["🚗", "✨", "💫", "🌸", "🐈"],
-    confettiRadius: 8,
-    confettiNumber: 400,
-  });
+//   jsConfetti.addConfetti({
+//     emojis: ["🚗", "✨", "💫", "🌸", "🐈","🍗", "🥕","🌽","🥩"],
+//     confettiRadius: 8,
+//     confettiNumber: 400,
+//   });
 
-  jsConfetti.addConfetti();
-}
+//   jsConfetti.addConfetti();
+// }
