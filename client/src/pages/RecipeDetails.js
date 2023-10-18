@@ -4,16 +4,11 @@ import { useCurrentUser } from '../hooks/useCurrentUser'
 import { PassageUser } from '@passageidentity/passage-elements/passage-user';
 
 function RecipeDetails() {
-  let user = null;
   const {isLoading, isAuthorized} = useCurrentUser();
-  if (isAuthorized) {
-    user = new PassageUser()
-  }
 
   const handleSaveRecipeClick = () => {
     if (isAuthorized) {
-      console.log("User is authorized")
-      console.log(user)
+      console.log("RecipeDetails, isAuthorized via useCurrentUser: ",isAuthorized)
       // TODO make a call to the db and save this recipe ID with this user
     }
     else {
@@ -21,14 +16,8 @@ function RecipeDetails() {
     }
   };
 
-  const handleSignOut = () => {
-    console.log("sign out")
-    user.signOut()
-  }
-
   return (
     <>
-      <div onClick={handleSignOut}>sign out</div>
       <h1>Recipe Details</h1>
       <div onClick={handleSaveRecipeClick}>Save this to My Recipes</div>
       Image goes here

@@ -9,11 +9,10 @@ export default function Tags() {
   useEffect(() => {
     axios.get("/ingredients")
       .then((response) => {
-        console.log(response.data)
         setIngredients(response.data)
       })
       .catch((error) => {
-        console.log("Here's your error: , error")
+        console.log("Here's your error: ", error)
       });
   }, [])
 

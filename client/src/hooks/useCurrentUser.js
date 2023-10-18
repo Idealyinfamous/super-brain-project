@@ -5,10 +5,13 @@ export function useCurrentUser() {
     const [result, setResult] = useState({
         isLoading: true,
         isAuthorized: false,
+        uuid: null
     });
 
     useEffect(() => {
+        let cancelRequest = false;
         new PassageUser().userInfo().then(userInfo=> {
+            console.log("useCurrentUser hook, userInfo: ",userInfo)
             if( cancelRequest ) {
                 return;
             }
@@ -19,7 +22,6 @@ export function useCurrentUser() {
                 });
                 return;
             }
-            console.log(userInfo)
             setResult({
                 isLoading: false,
                 isAuthorized: true,

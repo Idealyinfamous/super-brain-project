@@ -71,3 +71,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### Passage stuff
 npm i --save @passageidentity/passage-elements
+npm install @passageidentity/passage-react

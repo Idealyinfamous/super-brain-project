@@ -1,34 +1,40 @@
-import React from 'react'
-import {useCurrentUser} from '../hooks/useCurrentUser';
+import { PassageAuthGuard } from "@passageidentity/passage-react";
+import { usePassageUserInfo } from "../hooks/";
+import LogOutButton from "../components/LogOutButton";
 
+function Dashboard() {
+  const { userInfo, loading } = usePassageUserInfo();
 
-function MyRecipes() {
-  const {isLoading, isAuthorized} = useCurrentUser();
-
-  if (isLoading) {
-      return null;
+  if (loading) {
+    return (
+      <div>
+        <div >Loading</div>
+      </div>
+    );
   }
-  const authorizedBody =
-  <>
-      <h1>Your Saved Recipes</h1>
-  </>
-
-  const unauthorizedBody =
-  <>
-      Create an account or log in to your saved recipes.
-      <br/><br/>
-      <a href="/register-or-login">Login to continue.</a>
-  </>
 
   return (
-      <div >
-          <div >{isAuthorized ? 'Welcome!' : 'Unauthorized'}</div>
+    <PassageAuthGuard
+      unAuthComp={
+        <div>
+          <div >you must be logged in</div>
           <div >
-              { isAuthorized ? authorizedBody : unauthorizedBody }
+            <a href="/">Login</a>
           </div>
+        </div>
+      }
+    >
+      <div>
+        <div >Welcome</div>
+        <div >
+          You successfully signed in with Passage. This is your homepage. <br />
+          <br />
+          Your username is: {userInfo?.email}
+        </div>
+        <LogOutButton />
       </div>
+    </PassageAuthGuard>
   );
-
 }
 
-export default MyRecipes;
+export default Dashboard;
