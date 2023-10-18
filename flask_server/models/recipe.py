@@ -4,7 +4,7 @@ class Recipe:
     def __init__(self, data):
         self.id = data['id']
         self.recipe_id = data['recipe_id']
-        self.users_id = data['user_id']
+        self.user_id = data['user_id']
         self.title = data['title']
         self.image = data['image']
         self.created_at = data['created_at']
