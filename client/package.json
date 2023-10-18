@@ -23,7 +23,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "develop": "concurrently \"cd ../flask_server && python server.py\" \"npm start\"",
+    "develop": "concurrently \"cd ../flask_server && python3 server.py\" \"npm start\"",
+    "develop-win": "concurrently \"cd ../flask_server && python server.py\" \"npm start\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
