@@ -1,15 +1,12 @@
 import React from 'react'
-import DropdownMenu from "../components/DropdownMenu";
-import Passage from './PassagePage';
-
+import IngredientsForm from "../components/IngredientsForm";
 
 function HomePage() {
   return (
     <>
         <h1>Hi, let's get dinner going!</h1>
         <p>Brief Summary</p>
-        <div><DropdownMenu/></div>
-        <button>Try me</button>
+        <div><IngredientsForm/></div>
     </>
 
   )
