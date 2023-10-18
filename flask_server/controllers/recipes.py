@@ -14,7 +14,8 @@ def parse_ingredients_list():
     results = []
     with open("./ingredients.csv", "r") as file:
         for line in file:
-            parts = line.split(";")
+            line2 = line.strip()
+            parts = line2.split(";")
             ingredient = {}
             ingredient["name"] = parts[0]
             ingredient["id"] = parts[1]
