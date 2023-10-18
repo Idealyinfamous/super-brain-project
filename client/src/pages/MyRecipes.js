@@ -8,7 +8,7 @@ function Dashboard() {
   if (loading) {
     return (
       <div>
-        <div >Loading</div>
+        <div>Loading</div>
       </div>
     );
   }
@@ -17,21 +17,24 @@ function Dashboard() {
     <PassageAuthGuard
       unAuthComp={
         <div>
-          <div >you must be logged in</div>
-          <div >
-            <a href="/">Login</a>
-          </div>
+          <a href="/register-or-login">
+            You must log in or create an account to view this page.
+          </a>
         </div>
       }
     >
       <div>
-        <div >Welcome</div>
-        <div >
-          You successfully signed in with Passage. This is your homepage. <br />
-          <br />
-          Your username is: {userInfo?.email}
+        <h1>Your Saved Recipes</h1>
+        <div>
+          <ul>
+            <li>Recipe 1</li>
+            <li>Recipe 2</li>
+            <li>Recipe 3</li>
+            <li>Recipe 4</li>
+            <li>Recipe 5</li>
+            <li>Recipe 6</li>
+          </ul>
         </div>
-        <LogOutButton />
       </div>
     </PassageAuthGuard>
   );

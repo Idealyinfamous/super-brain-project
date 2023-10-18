@@ -1,17 +1,18 @@
 import React from 'react'
 import LogInPrompt from '../components/LogInPrompt';
-import { useCurrentUser } from '../hooks/useCurrentUser'
-import { PassageUser } from '@passageidentity/passage-elements/passage-user';
+import { PassageAuthGuard } from "@passageidentity/passage-react";
+import { usePassageUserInfo } from "../hooks/";
 
 function RecipeDetails() {
-  const {isLoading, isAuthorized} = useCurrentUser();
+  const { userInfo, loading } = usePassageUserInfo();
 
   const handleSaveRecipeClick = () => {
-    if (isAuthorized) {
-      console.log("RecipeDetails, isAuthorized via useCurrentUser: ",isAuthorized)
+    if (userInfo) {
+      console.log("userInfo: ",userInfo)
       // TODO make a call to the db and save this recipe ID with this user
     }
     else {
+      console.log("should be logged out")
       // show log in prompt
     }
   };
