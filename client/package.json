@@ -8,10 +8,7 @@
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.14.13",
     "@passageidentity/passage-elements": "^1.14.0",
-<<<<<<< HEAD
     "@passageidentity/passage-react": "^0.5.0",
-=======
->>>>>>> main
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
