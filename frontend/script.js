@@ -29,6 +29,28 @@ let slot ={
         }
     },
 
-    //set first position
+    //stop button click event
+    stop:function(i){
+        stopReelFlag[i] = true
+        if(stopReelFlag[0] && stopReelFlag[1] && stopReelFlag[2]){
+            start_btn.removeAttribute("disabled");
+        }
+    },
+
+    //set first start position
+    resetlocationInfo:function(){
+        slotFrameHeight = slot_screen.offsetHeight;
+        slotReelsHeight = reels[0].offsetHeight;
+        slotReelItemHeight = reel[0].offsetHeight;
+        slotReelStartHeight = -slotReelsHeight;
+        slotReelStartHeight += slotFrameHeight
+        -(slotFrameHeight /2) + slotReelItemHeight * 3 / 2;
+        for(let i =0; i < reels>length;i++){
+            reels[1].computedStyleMap.top =string(slotReelStartHeight) + "px";
+
+        }
+
+    },
+    //move the slot
 
 };
