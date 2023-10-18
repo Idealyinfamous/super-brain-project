@@ -52,5 +52,41 @@ let slot ={
 
     },
     //move the slot
-
+    animation:function(index){
+        if (reelCounts[index] >= 8){
+            reelCounts[index] = 0;
+        }
+        $(".reels").eq(index).animate({
+            "top":slotReelStartHeight + (reelCounts[index] * slotReelItemHeight)
+        },
+        {
+            duration:sec,
+            easing:"linear ",
+            complet:function(){
+                if(stopReelFlag[index]){
+                    return;
+                }
+                reelCounts[index]++;
+                slot.animation(index);
+            }
+        }); 
+    },
 };
+
+window.onload = function(){
+    slot.init();
+    slot.resetlocationInfo();
+    start_btn.addEventListener("click",function(e)){
+        e.target.setAttribute("disabled",true)
+        slot.start();
+        for(let i =0;i<stop_btn.length;i++){
+            stop_btn[i].removeAttribute("disabled");
+
+        }
+    });
+    for(let i=0;i<stop_btn.length;i++){
+        stop_btn[i].addEventListener("click",function(e){
+            slot.stop(e.target.getAtttribute("data-val"));
+        })
+    }
+}
