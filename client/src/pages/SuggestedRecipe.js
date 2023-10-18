@@ -15,8 +15,10 @@ function SuggestedRecipe() {
         const jsConfetti = new JSConfetti();
         jsConfetti.addConfetti({
       emojis: ["🥕","🌽","🍇","🍅","🍒","🍐"],
+      emojiSize: 50,
       confettiRadius: 8,
       confettiNumber: 400,
+    
       });
 
       jsConfetti.addConfetti();
@@ -30,7 +32,7 @@ function SuggestedRecipe() {
 
 //npm install js-confetti
 
-// export default SuggestedRecipe
+export default SuggestedRecipe
 
 
 // function recipeChosen() {
