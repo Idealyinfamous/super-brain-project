@@ -6,7 +6,7 @@ import HomePage from "./pages/HomePage";
 import SuggestedRecipe from "./pages/SuggestedRecipe";
 import RecipeDetails from "./pages/RecipeDetails";
 import MyRecipes from "./pages/MyRecipes";
-import PassagePage from "./pages/PassagePage";
+import Passage from "./components/PassageRegisterOrLogin";
 import NavBar from "./components/NavBar";
 
 const App = () => {
@@ -15,7 +15,7 @@ const App = () => {
       <Router>
         <NavBar />
         <Routes>
-          <Route path="register-or-login" element={<PassagePage />} />
+          <Route path="register-or-login" element={<Passage />} />
           <Route path="/" element={<HomePage />} />
           <Route path="suggested-recipe" element={<SuggestedRecipe />} />
           <Route path="recipe-details" element={<RecipeDetails />} />

@@ -20,6 +20,7 @@ function RecipeDetails() {
   return (
     <>
       <h1>Recipe Details</h1>
+      <LogInPrompt/>
       <div onClick={handleSaveRecipeClick}>Save this to My Recipes</div>
       Image goes here
       <img src=''/>
@@ -34,7 +35,6 @@ function RecipeDetails() {
       <p>instructions</p>
       <p>Hmmmm, this isn't really what I'm looking for</p>
       <button>Let me choose another recipe</button>
-      <LogInPrompt/>
     </>
   )
 }
