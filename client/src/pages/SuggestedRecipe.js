@@ -14,9 +14,11 @@ function SuggestedRecipe() {
     <Button variant = 'contained' size = 'medium' color = 'success' onClick ={()=> {  
         const jsConfetti = new JSConfetti();
         jsConfetti.addConfetti({
-      emojis: ["🚗", "✨", "💫", "🌸", "🐈"],
+      emojis: ["🥕","🌽","🍇","🍅","🍒","🍐"],
+      emojiSize: 50,
       confettiRadius: 8,
       confettiNumber: 400,
+    
       });
 
       jsConfetti.addConfetti();
@@ -33,14 +35,14 @@ function SuggestedRecipe() {
 export default SuggestedRecipe
 
 
-function recipeChosen() {
-  const jsConfetti = new JSConfetti();
+// function recipeChosen() {
+//   const jsConfetti = new JSConfetti();
 
-  jsConfetti.addConfetti({
-    emojis: ["🚗", "✨", "💫", "🌸", "🐈"],
-    confettiRadius: 8,
-    confettiNumber: 400,
-  });
+//   jsConfetti.addConfetti({
+//     emojis: ["🚗", "✨", "💫", "🌸", "🐈","🍗", "🥕","🌽","🥩"],
+//     confettiRadius: 8,
+//     confettiNumber: 400,
+//   });
 
-  jsConfetti.addConfetti();
-}
+//   jsConfetti.addConfetti();
+// }
