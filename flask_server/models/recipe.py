@@ -12,8 +12,8 @@ class Recipe:
 
     @classmethod
     def save(cls, data):
-        query = "insert into recipes (recipe_id, users_id, title, image) values ( %(recipe_id)s, %(user_id)s,%(title)s, %(image)s  );"
-        return connectToMySQL('superbrain_schema').query_db(query, data)
+        query = "insert into recipe (recipe_id, user_id, title, image) values ( %(recipe_id)s, %(user_id)s,%(title)s, %(image)s  );"
+        return connectToMySQL('super_brain_db').query_db(query, data)
 
     @staticmethod
     def validate_inputs(data):
