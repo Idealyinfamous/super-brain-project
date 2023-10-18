@@ -23,6 +23,7 @@ const IngredientsForm = () => {
   }, []);
 
   const handleSubmit = () => {
+    // TODO use these ingredients to get recipe from spoontacular API
     if (selectedOptions.length > 0) {
       setSubmittedOptions(selectedOptions);
     }
