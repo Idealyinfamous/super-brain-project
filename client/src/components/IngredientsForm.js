@@ -48,18 +48,6 @@ const IngredientsForm = () => {
           )}
         />
         <br />
-<<<<<<< HEAD
-        <Button className='getrecipe-btn' style={
-          {
-            borderRadius: 20,
-            backgroundColor: '#f4c17f',
-            fontFamily: 'Open-Dyslexic',
-            color: '#6c3428'
-          }
-        }
-          variant="contained" onClick={handleSubmit}>
-          Get recipe <CaretRightFill></CaretRightFill>
-=======
 
         {/*
         Do you want this button to take you to suggested recipe?
@@ -81,7 +69,6 @@ const IngredientsForm = () => {
           handleSubmit();
         }}>
                   Let's gooooooooo
->>>>>>> christry
         </Button>
         {/* </Link> */}
       </form>
