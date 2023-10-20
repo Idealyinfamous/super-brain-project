@@ -1,11 +1,132 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.cdnfonts.com/css/open-dyslexic');
+
+*{
+  box-sizing: border-box;
+}
+
+html{
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: 'Open-Dyslexic', sans-serif; 
+}
+
+#recipe-details-section{
+  min-height: calc(100vh - 30px);
+  padding-top: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 50px;
+}
+
+#recipe-details-section .details{
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px #466579;
+}
+
+
+
+.img-container{
+  width: 100%;
+  aspect-ratio: 10 / 4;
+  background-size: cover;
+  overflow: hidden;
+  border: 1px solid #f4c17f;
+  border-radius: 20px;
+}
+  .img-container > img{
+    width: 100%;
+    height: auto;
+  }
+
+.recipe-details-content{
+  padding: 0 50px 20px 50px;
+}
+  .recipe-details-content .ingredients-section{
+    background-color: #f4c17f;
+    border-radius: 20px;
+    padding: 5px;
+    padding-left: 20px;
+  }
+
+
+/* Font related */
+.brown{
+  color: #6c3428;
+}
+
+.text-center{
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.icon{
+  font-size: 30px;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: -15px;
+  color:#f4c17f;
 }
+  .icon > *{
+    background-color: white;
+    border-radius: 15px;
+  }
+
+  .icon > *:hover {
+    color:#6c3428;
+    background-color: #f4c17f;
+  }
+
+/* Grid Wrapper */
+.wrapper{
+  display: flex;
+  width: 100%;
+  margin: 0;
+  justify-content: center;
+  height: calc(100vh - 30px);
+  align-items: center;
+  align-content: center;
+}
+
+.card{
+  padding: 3em;
+  border-radius: 20px;
+  background: linear-gradient(146deg, rgba(151,191,209,1) 0%, rgba(107,160,178,1) 100%);
+  box-shadow: 1em 1em 30px gray;
+  min-width: 500px;
+  color: white;
+}
+
+.button{
+  background-color: #282c34;
+  border-radius: 10px;
+  font-size: 1px;
+}
+
+
+.ingredients-form > form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: end;
+  gap: 0.5em;
+}
+  .ingredients-form .MuiAutocomplete-root{
+    width: 100%;
+  }
+
+  .ingredients-form .MuiInputBase-root{
+    height: 50px;
+    border-radius: 25px;
+    background-color: white;
+  }
+  
+  .ingredients-form .getrecipe-btn{
+    min-width: 100px;
+  }
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

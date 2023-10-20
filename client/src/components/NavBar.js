@@ -10,7 +10,7 @@ function NavBar() {
     return (
         <div>
             <Link to="/">Get a Recipe</Link>
-            <Link to="/my-recipes">My Saved Recipes</Link>
+            <Link to="/my-saved-recipes">My Saved Recipes</Link>
             <Link to="/recipe-details">Recipe Details</Link>
             <Link to="/register-or-login">Register or Login</Link>
             <span><LogoutButton/></span>
