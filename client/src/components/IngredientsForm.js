@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import { CaretRightFill } from "react-bootstrap-icons";
 
 import axios from "axios";
 
@@ -31,7 +32,7 @@ const IngredientsForm = () => {
 
   // TODO fix unique key error
   return (
-    <div>
+    <div className="ingredients-form">
       <form>
         <Autocomplete
           multiple
@@ -40,12 +41,21 @@ const IngredientsForm = () => {
           value={selectedOptions}
           onChange={(event, newValue) => setSelectedOptions(newValue)}
           renderInput={(params) => (
-            <TextField {...params} label="Select ingredients" />
+            <TextField 
+             {...params} label="Select ingredients" />
           )}
         />
         <br />
-        <Button variant="contained" color="primary" onClick={handleSubmit}>
-          Let's gooooooooo
+        <Button className='getrecipe-btn' style={
+          {
+            borderRadius: 20,
+            backgroundColor: '#f4c17f',
+            fontFamily: 'Open-Dyslexic',
+            color: '#6c3428'
+          }
+        }
+          variant="contained" onClick={handleSubmit}>
+          Get recipe <CaretRightFill></CaretRightFill>
         </Button>
       </form>
       {submittedOptions.length > 0 && (

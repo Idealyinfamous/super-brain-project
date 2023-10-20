@@ -1,11 +1,70 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.cdnfonts.com/css/open-dyslexic');
+
+html{
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: 'Open-Dyslexic', sans-serif; 
+}
+
+/* Font related */
+.brown{
+  color: #6c3428;
+}
+
+.text-center{
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Grid Wrapper */
+.wrapper{
+  display: flex;
+  width: 100%;
+  margin: 0;
+  justify-content: center;
+  height: calc(100vh - 30px);
+  align-items: center;
+  align-content: center;
 }
+
+.card{
+  padding: 3em;
+  border-radius: 20px;
+  background: linear-gradient(146deg, rgba(151,191,209,1) 0%, rgba(107,160,178,1) 100%);
+  box-shadow: 1em 1em 30px gray;
+  min-width: 500px;
+  color: white;
+}
+
+.button{
+  background-color: #282c34;
+  border-radius: 10px;
+  font-size: 1px;
+}
+
+
+.ingredients-form > form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: end;
+  gap: 0.5em;
+}
+  .ingredients-form .MuiAutocomplete-root{
+    width: 100%;
+  }
+
+  .ingredients-form .MuiInputBase-root{
+    height: 50px;
+    border-radius: 25px;
+    background-color: white;
+  }
+  
+  .ingredients-form .getrecipe-btn{
+    min-width: 100px;
+  }
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
