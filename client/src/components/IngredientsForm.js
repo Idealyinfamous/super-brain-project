@@ -3,8 +3,10 @@ import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { CaretRightFill } from "react-bootstrap-icons";
+import {Link} from 'react-router-dom';
 
 import axios from "axios";
+import JSConfetti from 'js-confetti';
 
 const IngredientsForm = () => {
   const [selectedOptions, setSelectedOptions] = useState([]);
@@ -41,11 +43,12 @@ const IngredientsForm = () => {
           value={selectedOptions}
           onChange={(event, newValue) => setSelectedOptions(newValue)}
           renderInput={(params) => (
-            <TextField 
+            <TextField
              {...params} label="Select ingredients" />
           )}
         />
         <br />
+<<<<<<< HEAD
         <Button className='getrecipe-btn' style={
           {
             borderRadius: 20,
@@ -56,7 +59,31 @@ const IngredientsForm = () => {
         }
           variant="contained" onClick={handleSubmit}>
           Get recipe <CaretRightFill></CaretRightFill>
+=======
+
+        {/*
+        Do you want this button to take you to suggested recipe?
+        Is that where the slot-machine will be?
+         <Link to = "/suggested-recipe">
+         */}
+        <Button variant="contained" color="primary"
+        onClick={() => {
+          const jsConfetti = new JSConfetti();
+          jsConfetti.addConfetti({
+            emojis: ["🥕", "🌽", "🍇", "🍅", "🍒", "🍐"],
+            emojiSize: 50,
+            confettiRadius: 8,
+            confettiNumber: 400,
+
+          });
+
+          jsConfetti.addConfetti();
+          handleSubmit();
+        }}>
+                  Let's gooooooooo
+>>>>>>> christry
         </Button>
+        {/* </Link> */}
       </form>
       {submittedOptions.length > 0 && (
         <div>

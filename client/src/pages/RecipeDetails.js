@@ -1,18 +1,34 @@
-import React from 'react'
-import LogInPrompt from '../components/LogInPrompt';
+import React from "react";
+import LogInPrompt from "../components/LogInPrompt";
 import { PassageAuthGuard } from "@passageidentity/passage-react";
 import { usePassageUserInfo } from "../hooks/";
+import axios from "axios";
 
 function RecipeDetails() {
   const { userInfo, loading } = usePassageUserInfo();
 
   const handleSaveRecipeClick = () => {
     if (userInfo) {
-      console.log("userInfo: ",userInfo)
-      // TODO make a call to the db and save this recipe ID with this user
-    }
-    else {
-      console.log("should be logged out")
+      let data = {
+        user_id: userInfo["id"],
+        recipe_id: "69",
+        title: "testing again",
+        image: "www.bar.com",
+      };
+
+      axios
+        .post("/save_recipe", data)
+        .then((response) => {
+          // Handle the success response
+          console.log("Response data:", response.data);
+        })
+        .catch((error) => {
+          // Handle errors
+          console.error("Error:", error);
+        });
+
+    } else {
+      console.log("should be logged out");
       // show log in prompt
     }
   };
@@ -20,23 +36,23 @@ function RecipeDetails() {
   return (
     <>
       <h1>Recipe Details</h1>
-      <LogInPrompt/>
+      <LogInPrompt />
       <div onClick={handleSaveRecipeClick}>Save this to My Recipes</div>
       Image goes here
-      <img src=''/>
+      <img src="" />
       <p>description</p>
       <h4>ingredients list</h4>
       <ul>
-          <li>thing</li>
-          <li>thing</li>
-          <li>thing</li>
-          <li>thing</li>
-        </ul>
+        <li>thing</li>
+        <li>thing</li>
+        <li>thing</li>
+        <li>thing</li>
+      </ul>
       <p>instructions</p>
       <p>Hmmmm, this isn't really what I'm looking for</p>
       <button>Let me choose another recipe</button>
     </>
-  )
+  );
 }
 
-export default RecipeDetails
+export default RecipeDetails;
