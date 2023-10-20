@@ -1,9 +1,24 @@
 import { PassageAuthGuard } from "@passageidentity/passage-react";
 import { usePassageUserInfo } from "../hooks/";
 import LogOutButton from "../components/LogOutButton";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 function Dashboard() {
   const { userInfo, loading } = usePassageUserInfo();
+  const { myRecipes, setMyRecipes } = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`my_recipes`)
+      .then((response) => {
+        console.log(response);
+        setMyRecipes(response.data);
+      })
+      .catch((error) => {
+        console.log("Here's your error: ", error);
+      });
+  }, [userInfo]);
 
   if (loading) {
     return (

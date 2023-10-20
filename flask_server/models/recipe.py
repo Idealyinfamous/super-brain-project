@@ -15,6 +15,12 @@ class Recipe:
         query = "insert into recipe (recipe_id, user_id, title, image) values ( %(recipe_id)s, %(user_id)s,%(title)s, %(image)s  );"
         return connectToMySQL('super_brain_db').query_db(query, data)
 
+    @classmethod
+    def get_recipes_by_user_id(cls, data):
+        query = "select * from recipe where user_id ='EVlg5hWA1KpwXY6iIjbw5R1c';"
+        result =  connectToMySQL('super_brain_db').query_db(query, data)
+        return result
+
     @staticmethod
     def validate_inputs(data):
         is_valid = True

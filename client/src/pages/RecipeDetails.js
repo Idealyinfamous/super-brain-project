@@ -12,14 +12,15 @@ function RecipeDetails() {
       console.log("userInfo: ", userInfo);
       let data = {
         user_id: userInfo["id"],
-        recipe_id: "TestRecipeId",
-        title: "TestRecipeTitle",
-        image: "www.testrecipeurl.com",
+        recipe_id: "42",
+        title: "new recipe",
+        image: "www.foo.com",
       };
 
       axios
         .post("/save_recipe", data)
         .then((response) => {
+          console.log(data)
           // Handle the success response
           console.log("Response data:", response.data);
         })
