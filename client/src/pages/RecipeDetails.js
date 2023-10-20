@@ -1,5 +1,4 @@
 import React from "react";
-import LogInPrompt from "../components/LogInPrompt";
 import { PassageAuthGuard } from "@passageidentity/passage-react";
 import { usePassageUserInfo } from "../hooks/";
 import { PlusCircle, CaretLeftFill } from 'react-bootstrap-icons'
@@ -42,7 +41,7 @@ function RecipeDetails() {
 
   return (
     <>
-      <LogInPrompt />
+
       <div id="recipe-details-section">
 
         <h1 className='text-center'>Recipe Name</h1>
