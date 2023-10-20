@@ -54,7 +54,17 @@ const IngredientsForm = () => {
         Is that where the slot-machine will be?
          <Link to = "/suggested-recipe">
          */}
-        <Button variant="contained" color="primary"
+        <Button 
+        style={
+          {
+            borderRadius: 20,
+            backgroundColor: '#f4c17f',
+            fontFamily: 'Open-Dyslexic',
+            color: '#6c3428',
+            marginTop: 10
+          }
+        }
+        variant="contained" color="primary"
         onClick={() => {
           const jsConfetti = new JSConfetti();
           jsConfetti.addConfetti({
@@ -68,7 +78,8 @@ const IngredientsForm = () => {
           jsConfetti.addConfetti();
           handleSubmit();
         }}>
-                  Let's gooooooooo
+                  Get recipe 
+                  <CaretRightFill></CaretRightFill>
         </Button>
         {/* </Link> */}
       </form>
