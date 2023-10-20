@@ -1,28 +1,10 @@
 import * as  React from 'react'
 import { styled } from '@mui/material/styles';
 import { Paper, Grid, Container, Button, Card, CardActions, CardContent, CardMedia, Typography } from '@mui/material'
-// import Container from '@mui/material/Container'
-// import Button from '@mui/material/Button'
+
 import JSConfetti from 'js-confetti'
 
-// const Item = styled(Paper)(({ theme }) => ({
-//   // backgroundColor: theme.palette.mode === 'dark' ? '#6BA0B2' : '#fff',
-//   // ...theme.typography.body2,
-//   // padding: theme.spacing(1),
-
-//   backgroundColor: "#6BA0B2",
-//   textAlign: 'left',
-//   color: "#6C3428"
-
-//   // color: theme.palette.text.secondary,
-// }));
-
-
-
-//added temporary button to try out confetti function
-
-
-function SuggestedRecipe() {
+function RecipeCard() {
   return (
     <>
       <h1>My Recipes</h1>
@@ -72,17 +54,6 @@ function SuggestedRecipe() {
 
 //npm install js-confetti
 
-export default SuggestedRecipe
+export default RecipeCard
 
 
-// function recipeChosen() {
-//   const jsConfetti = new JSConfetti();
-
-//   jsConfetti.addConfetti({
-//     emojis: ["🚗", "✨", "💫", "🌸", "🐈","🍗", "🥕","🌽","🥩"],
-//     confettiRadius: 8,
-//     confettiNumber: 400,
-//   });
-
-//   jsConfetti.addConfetti();
-// }
