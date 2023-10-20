@@ -1,6 +1,5 @@
 import React from 'react'
-import LogInPrompt from '../components/LogInPrompt';
-import { PassageAuthGuard } from "@passageidentity/passage-react";
+import LogInPrompt from '../components/SlotMachine/SlotMachine';
 import { usePassageUserInfo } from "../hooks/";
 
 function RecipeDetails() {
