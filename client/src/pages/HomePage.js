@@ -3,6 +3,11 @@ import IngredientsForm from "../components/IngredientsForm";
 import '../App.css'
 
 function HomePage() {
+
+  const onSubmit= (e) => {
+    console.log("submitting")
+  }
+
   return (
     <>
       <div className="wrapper">
@@ -10,7 +15,7 @@ function HomePage() {
         <h1 className='text-center'>Hi, let's get <b className='brown'>dinner</b> going!</h1>
         <div className='card'>
           <p>Add Ingredients to the list</p>
-          <div><IngredientsForm /></div>
+          <div><IngredientsForm handleSubmit={onSubmit}/></div>
         </div>
         </div>
 

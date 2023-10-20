@@ -8,6 +8,24 @@ import {Link} from 'react-router-dom';
 import axios from "axios";
 import JSConfetti from 'js-confetti';
 
+const SPOON_API_KEY = "622012b5d9bb4844bda0fe5a12cfd221"
+const SPOON_API_URL = "https://api.spoonacular.com"
+
+const slugify = (ingredientName) => {
+  return ingredientName
+  .toString()                     // Convert to string in case it's not
+  .toLowerCase()                  // Convert to lowercase
+  .normalize('NFD')               // Normalize special characters
+  .replace(/[\u0300-\u036f]/g, '') // Remove diacritical marks
+  .trim()                         // Trim leading/trailing white space
+  .replace(/\s+/g, '-')           // Replace spaces with hyphens
+  .replace(/&/g, '-and-')         // Replace & with '-and-'
+  .replace(/[^a-z0-9-]/g, '')     // Remove any non-word characters
+  .replace(/-+/g, '-')            // Remove consecutive hyphens
+  .replace(/^-+/, '')             // Remove leading hyphens
+  .replace(/-+$/, '');            // Remove trailing hyphens
+}
+
 const IngredientsForm = () => {
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [submittedOptions, setSubmittedOptions] = useState([]);
@@ -29,8 +47,27 @@ const IngredientsForm = () => {
     // TODO use these ingredients to get recipe from spoontacular API
     if (selectedOptions.length > 0) {
       setSubmittedOptions(selectedOptions);
+      getRecipes(selectedOptions);
     }
   };
+
+  const getRecipes = (ingredients) => {
+    console.log("ingredients = ", ingredients)
+    let slugifiedIngredientList = ingredients.map((ingredient) => (
+      slugify(ingredient['name'])
+    ))
+    let slugifiedIngredientString = slugifiedIngredientList.join(',+')
+    let url = `${SPOON_API_URL}/recipes/findByIngredients?apiKey=${SPOON_API_KEY}&number=1&ranking=1&ingredients=${slugifiedIngredientString}`
+    let headers = { 'Content-Type': 'application/json' }
+    axios
+      .get(url=url, headers=headers)
+      .then((response) => {
+        console.log("spoontacular api response ",response)
+      })
+      .catch((error) => {
+        console.log("There was an error and here it is: ", error)
+      });
+  }
 
   // TODO fix unique key error
   return (
@@ -54,7 +91,7 @@ const IngredientsForm = () => {
         Is that where the slot-machine will be?
          <Link to = "/suggested-recipe">
          */}
-        <Button 
+        <Button
         style={
           {
             borderRadius: 20,
@@ -78,7 +115,7 @@ const IngredientsForm = () => {
           jsConfetti.addConfetti();
           handleSubmit();
         }}>
-                  Get recipe 
+                  Get recipe
                   <CaretRightFill></CaretRightFill>
         </Button>
         {/* </Link> */}
