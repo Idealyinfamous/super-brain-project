@@ -8,13 +8,15 @@ import LogoutButton from './LogOutButton';
 function NavBar() {
 
     return (
-        <div>
-            <Link to="/">Get a Recipe</Link>
-            <Link to="/my-recipes">My Saved Recipes</Link>
-            <Link to="/recipe-details">Recipe Details</Link>
-            <Link to="/register-or-login">Register or Login</Link>
+        <nav className="nav">
+        {/* <div className="link"> */}
+            <Link className="links" to="/">Get a Recipe</Link>
+            <Link className="links" to="/my-recipes">My Saved Recipes</Link>
+            <Link className="links" to="/recipe-details">Recipe Details</Link>
+            <Link className="links" to="/register-or-login">Register or Login</Link>
             <span><LogoutButton/></span>
-        </div>
+        {/* </div> */}
+        </nav> 
     )
 }
 

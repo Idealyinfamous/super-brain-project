@@ -8,6 +8,7 @@ import RecipeDetails from "./pages/RecipeDetails";
 import MyRecipes from "./pages/MyRecipes";
 import Passage from "./components/PassageRegisterOrLogin";
 import NavBar from "./components/NavBar";
+import "./App.css"
 
 const App = () => {
   return (
