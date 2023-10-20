@@ -16,9 +16,10 @@ class Recipe:
         return connectToMySQL('super_brain_db').query_db(query, data)
 
     @classmethod
-    def get_recipes_by_user_id(cls, data):
-        query = "select * from recipe where user_id ='EVlg5hWA1KpwXY6iIjbw5R1c';"
-        result =  connectToMySQL('super_brain_db').query_db(query, data)
+    def get_recipes_by_user_id(cls, id):
+        id = {"id": id}
+        query = "select * from recipe where user_id = ( %(id)s );"
+        result =  connectToMySQL('super_brain_db').query_db(query, id)
         return result
 
     @staticmethod

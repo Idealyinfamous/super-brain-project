@@ -23,7 +23,7 @@ const App = () => {
           <Route path="suggested-recipe" element={<SuggestedRecipe />} />
           <Route path="super-secret-sandbox" element={<Sandbox />} />
           <Route path="recipe-details" element={<RecipeDetails />} />
-          <Route path="my-recipes" element={<MyRecipes />} />
+          <Route path="my-saved-recipes" element={<MyRecipes />} />
         </Routes>
       </Router>
     </PassageProvider>

@@ -7,20 +7,16 @@ from flask import render_template, redirect, request, session
 def index():
     return render_template('index.html')
 
-@app.route('/my_recipes/<id>', methods=['get'])
+@app.route('/recipe-by-user-id/<id>', methods=['get'])
 def my_recipes(id):
-    print("********* we're here in this route!!!")
     result = Recipe.get_recipes_by_user_id(id)
-    print(result)
     return result
 
 @app.route('/save_recipe', methods=['post'])
 def save_recipe():
     data = request.json
-    print("***********")
-    print(data)
     Recipe.save(data)
-    return "True"
+    return "True" # TODO make this return something sensible
 
 @app.route('/ingredients')
 def ingredients():
