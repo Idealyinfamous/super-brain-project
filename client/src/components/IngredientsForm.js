@@ -4,6 +4,9 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { CaretRightFill } from "react-bootstrap-icons";
 import {Link} from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 
 import axios from "axios";
 import JSConfetti from 'js-confetti';
@@ -27,6 +30,8 @@ const slugify = (ingredientName) => {
 }
 
 const IngredientsForm = () => {
+  const navigate = useNavigate();
+
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [submittedOptions, setSubmittedOptions] = useState([]);
 
@@ -44,7 +49,6 @@ const IngredientsForm = () => {
   }, []);
 
   const handleSubmit = () => {
-    // TODO use these ingredients to get recipe from spoontacular API
     if (selectedOptions.length > 0) {
       setSubmittedOptions(selectedOptions);
       getRecipes(selectedOptions);
@@ -52,7 +56,6 @@ const IngredientsForm = () => {
   };
 
   const getRecipes = (ingredients) => {
-    console.log("ingredients = ", ingredients)
     let slugifiedIngredientList = ingredients.map((ingredient) => (
       slugify(ingredient['name'])
     ))
@@ -61,8 +64,8 @@ const IngredientsForm = () => {
     let headers = { 'Content-Type': 'application/json' }
     axios
       .get(url=url, headers=headers)
-      .then((response) => {
-        console.log("spoontacular api response ",response)
+      .then((response) => { // TODO what if it doesn't return a recipe
+        navigate(`/suggested-recipe/${response.data[0]['id']}`);
       })
       .catch((error) => {
         console.log("There was an error and here it is: ", error)

@@ -1,5 +1,4 @@
 import React from "react";
-import LogInPrompt from "../components/LogInPrompt";
 import { PassageAuthGuard } from "@passageidentity/passage-react";
 import { usePassageUserInfo } from "../hooks/";
 import { PlusCircle, CaretLeftFill } from 'react-bootstrap-icons'
@@ -42,7 +41,6 @@ function RecipeDetails() {
 
   return (
     <>
-      <LogInPrompt />
       <div id="recipe-details-section">
 
         <h1 className='text-center'>Recipe Name</h1>
@@ -67,7 +65,7 @@ function RecipeDetails() {
               }
             </ul>
             </div>
-            
+
             <h3>Instructions</h3>
             <p>Hmmmm, this isn't really what I'm looking for</p>
           </div>
@@ -83,7 +81,7 @@ function RecipeDetails() {
           }
         }
           variant="contained" onClick={()=>{console.log('Get another recipe')}}>
-          <CaretLeftFill></CaretLeftFill>I want another recipe 
+          <CaretLeftFill></CaretLeftFill>I want another recipe
         </Button>
       </div>
     </>
