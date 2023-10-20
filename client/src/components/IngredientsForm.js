@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import {Link} from 'react-router-dom';
 
 import axios from "axios";
+import JSConfetti from 'js-confetti';
 
 const IngredientsForm = () => {
   const [selectedOptions, setSelectedOptions] = useState([]);
@@ -44,9 +46,29 @@ const IngredientsForm = () => {
           )}
         />
         <br />
-        <Button variant="contained" color="primary" onClick={handleSubmit}>
-          Let's gooooooooo
+        
+        {/*
+        Do you want this button to take you to suggested recipe?
+        Is that where the slot-machine will be?
+         <Link to = "/suggested-recipe"> 
+         */}
+        <Button variant="contained" color="primary"
+        onClick={() => {
+          const jsConfetti = new JSConfetti();
+          jsConfetti.addConfetti({
+            emojis: ["🥕", "🌽", "🍇", "🍅", "🍒", "🍐"],
+            emojiSize: 50,
+            confettiRadius: 8,
+            confettiNumber: 400,
+
+          });
+
+          jsConfetti.addConfetti();
+          handleSubmit();
+        }}>
+                  Let's gooooooooo
         </Button>
+        {/* </Link> */}
       </form>
       {submittedOptions.length > 0 && (
         <div>
