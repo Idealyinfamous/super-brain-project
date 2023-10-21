@@ -1,10 +1,6 @@
-$icon_width: 79px;
-$icon_height: 79px;
+$icon_width: 150px;
+$icon_height: 100px;
 $num_icons: 9;
-
-.debug {
-	position: fixed; top: 4px; left: 50%; transform: translateX(-50%); padding: 4px; background: white;border: 1px solid rgba(black, 0.3); font-family: monospace; font-size: 1.6rem;
-}
 
 //html, body { height: 100%; }
 
@@ -15,13 +11,20 @@ $num_icons: 9;
 //	/*background: linear-gradient(45deg, grey 0%, lightgray 100%);*/
 //}
 
+.slotmachine-container{
+	height: calc(100vh - 50px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 .slots {
 	position: relative;
-	width: 3.5 * $icon_width;
+	width: 3.4 * $icon_width;
 	height: 3 * $icon_height;
 	display: flex;
 	justify-content: space-between;
-	padding: 0.3 * $icon_width;
+	padding: 0.1 * $icon_width;
 	background: linear-gradient(146deg, rgba(151,191,209,1) 0%, rgba(107,160,178,1) 100%);
 	box-shadow: 0.5em 0.5em 5px gray;
 	border-radius: 20px;
@@ -32,7 +35,7 @@ $num_icons: 9;
 		content:"";
 		position: absolute;
 		top: 50%;
-		width: 10px;
+		width: 2px;
 		height: 2px;
 		background-color: rgba(black, 0.5);
 	}
@@ -70,9 +73,8 @@ $num_icons: 9;
 	.reel {
 		position: relative;
 		width: $icon_width;
-		height: 3 * $icon_height;
-		border: 1px solid rgba(black, 0.3);
-		border-radius: 3px;
+		height: 2.7 * $icon_height;
+		border-radius: 10px;
 		overflow: hidden;
 		background-image: url(https://andyhoffman.codes/random-assets/img/slots/sprite5.png);
 		background-position: 0 0;
