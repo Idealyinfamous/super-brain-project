@@ -9,8 +9,7 @@ def index():
 
 @app.route('/recipe-by-user-id/<id>', methods=['get'])
 def my_recipes(id):
-    result = Recipe.get_recipes_by_user_id(id)
-    return result
+    return Recipe.get_recipes_by_user_id(id)
 
 @app.route('/save_recipe', methods=['post'])
 def save_recipe():

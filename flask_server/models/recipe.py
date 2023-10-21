@@ -20,7 +20,7 @@ class Recipe:
         id = {"id": id}
         query = "select * from recipe where user_id = ( %(id)s );"
         result =  connectToMySQL('super_brain_db').query_db(query, id)
-        return result
+        return result if result else []
 
     @staticmethod
     def validate_inputs(data):
@@ -29,4 +29,3 @@ class Recipe:
         if ():
             is_valid = False
         return is_valid
-    

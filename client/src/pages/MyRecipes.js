@@ -1,11 +1,10 @@
 import { PassageAuthGuard } from "@passageidentity/passage-react";
 import { usePassageUserInfo } from "../hooks/";
-import LogOutButton from "../components/LogOutButton";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import RecipeCard from "../components/RecipeCard";
 
-function Dashboard() {
+function MyRecipes() {
   const { userInfo, loading } = usePassageUserInfo();
   const [ myRecipes, setMyRecipes ] = useState([]);
 
@@ -43,7 +42,8 @@ function Dashboard() {
           <h1 style={{ color: "#6C3428", textAlign: "center" }}>
             My Saved Recipes
           </h1>
-          <div>
+          { myRecipes.length > 0 ? (
+            <div>
             <ul style={{ listStyle: "none" }}>
               {myRecipes.map((item, index) => (
                 <li key={index}>
@@ -52,10 +52,14 @@ function Dashboard() {
               ))}
             </ul>
           </div>
+          ) : (
+            <div>You have no recipes to show.</div>
+          ) }
+
         </div>
       </PassageAuthGuard>
     );
   }
 }
 
-export default Dashboard;
+export default MyRecipes;
