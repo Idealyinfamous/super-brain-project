@@ -87,7 +87,44 @@ function SuggestedRecipe() {
               </div>
             </div>
 
-            <div></div>
+            <div className="suggested-btns">
+              <Link to={`/recipe-details/${recipeId}`}>
+                <Button
+                  style={{
+                    borderRadius: 20,
+                    backgroundColor: "#f4c17f",
+                    fontFamily: "Open-Dyslexic",
+                    color: "#6c3428",
+                    marginTop: 10,
+                  }}
+                  variant="contained"
+                  onClick={() => {
+                    console.log("Get another recipe");
+                  }}
+                >
+                  YES I LIKE THIS<CaretRightFill></CaretRightFill>
+                </Button>
+              </Link>
+              <Link to="/">
+                <Button
+                  style={{
+                    borderRadius: 20,
+                    borderColor: "#6c3428",
+                    fontFamily: "Open-Dyslexic",
+                    color: "#6c3428",
+                    marginTop: 10,
+                    maxWidth: 250,
+                  }}
+                  variant="outlined"
+                  onClick={() => {
+                    console.log("Get another recipe");
+                  }}
+                >
+                  <CaretLeftFill></CaretLeftFill>Noooo, I want to go back and
+                  try again.
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </>
