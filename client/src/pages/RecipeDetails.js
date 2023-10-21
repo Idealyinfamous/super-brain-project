@@ -6,7 +6,7 @@ import { PlusCircle, CaretLeftFill } from "react-bootstrap-icons";
 import Button from "@mui/material/Button";
 import axios from "axios";
 
-const SPOON_API_KEY = "622012b5d9bb4844bda0fe5a12cfd221";
+const SPOON_API_KEY = "211a5be1593a4998b32368d3b3517ac6";
 const SPOON_API_URL = "https://api.spoonacular.com";
 
 function RecipeDetails() {
@@ -18,10 +18,7 @@ function RecipeDetails() {
 
   useEffect(() => {
     axios
-      .get(
-        (url = `${SPOON_API_URL}/recipes/${recipeId}/information?includeNutrition=false&apiKey=${SPOON_API_KEY}`),
-        (headers = headers)
-      )
+      .get(`${SPOON_API_URL}/recipes/${recipeId}/information?includeNutrition=false&apiKey=${SPOON_API_KEY}`)
       .then((response) => {
         console.log(response);
         setRecipe(response.data);
@@ -31,7 +28,7 @@ function RecipeDetails() {
       });
 
     axios
-      .get((url = `${SPOON_API_URL}/recipes/${recipeId}/analyzedInstructions&apiKey=${SPOON_API_KEY}`), (headers = headers))
+      .get(`${SPOON_API_URL}/recipes/${recipeId}/analyzedInstructions&apiKey=${SPOON_API_KEY}`)
       .then((response) => {
         console.log(response);
         setRecipe(response.data);

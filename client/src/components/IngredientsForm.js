@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import JSConfetti from 'js-confetti';
 
-const SPOON_API_KEY = "622012b5d9bb4844bda0fe5a12cfd221"
+const SPOON_API_KEY = "211a5be1593a4998b32368d3b3517ac6"
 const SPOON_API_URL = "https://api.spoonacular.com"
 
 const slugify = (ingredientName) => {

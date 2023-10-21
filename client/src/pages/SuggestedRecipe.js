@@ -20,7 +20,7 @@ import {
 import JSConfetti from "js-confetti";
 import axios from "axios";
 
-const SPOON_API_KEY = "622012b5d9bb4844bda0fe5a12cfd221";
+const SPOON_API_KEY = "211a5be1593a4998b32368d3b3517ac6";
 const SPOON_API_URL = "https://api.spoonacular.com";
 
 function SuggestedRecipe() {
