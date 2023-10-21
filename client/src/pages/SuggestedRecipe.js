@@ -1,7 +1,7 @@
 import { React, useEffect, useState } from "react";
 import { useParams, Link } from 'react-router-dom';
-import { PlusCircle, CaretLeftFill } from "react-bootstrap-icons";
-import  SlotMachine from "../components/SlotMachine/SlotMachine";
+import { PlusCircle, CaretLeftFill, CaretRightFill } from "react-bootstrap-icons";
+import SlotMachine from "../components/SlotMachine/SlotMachine";
 
 import { styled } from "@mui/material/styles";
 import {
@@ -32,14 +32,14 @@ function SuggestedRecipe() {
 
   useEffect(() => {
     axios
-    .get((url = url), (headers = headers))
-    .then((response) => {
-      console.log(response)
-      // setRecipe(response.data)
-    })
-    .catch((error) => {
-      console.log("There was an error and here it is: ", error);
-    });
+      .get((url = url), (headers = headers))
+      .then((response) => {
+        console.log(response)
+        // setRecipe(response.data)
+      })
+      .catch((error) => {
+        console.log("There was an error and here it is: ", error);
+      });
   }, [])
 
   const dummyIngredients = ["Onions", "Potatoes", "Chicken", "Salt", "Oil"];
@@ -47,68 +47,82 @@ function SuggestedRecipe() {
   const recipeName = "Chocolate Cake";
   const prepTime = "30 min";
   const totalTime = "50min";
+  const imageSource = "https://spoonacular.com/recipeImages/633505-312x231.jpg";
 
   return (
     <>
       <SlotMachine />
       <div className="wrapper">
         <div>
-          <h1>
+          <h1 className="text-center">
             Here is your <span className="brown">recipe</span>
           </h1>
           <div className="card card-grid">
             <div className="card-image-container">
-              <img />
+              <img src={imageSource} />
             </div>
             <div className="card-details-container">
-              <h2>{recipeName}</h2>
+              <h2 className="text-center">{recipeName}</h2>
 
               <ul className="ingredients">
                 {dummyIngredients.map((ingredient) => (
                   <li className="ingredient">{ingredient}</li>
                 ))}
               </ul>
-              <div>
-                <p>Prep Time</p>
-                <p>Total Time</p>
+              <div className="times-container">
+                <div className="text-center">
+                  <p><b>Prep Time</b></p>
+                  <p>{prepTime}</p>
+                </div>
+                <div>
+                  <p><b>Total Time</b></p>
+                  <p>{totalTime}</p>
+                </div>
               </div>
               <h3>Description</h3>
               <p>Lorem Ipsaoifvgasghasgjasfjoais</p>
             </div>
           </div>
+          <div className="suggested-btns">
+            <Link to="/recipe-details">
+              <Button
+                style={{
+                  borderRadius: 20,
+                  backgroundColor: "#f4c17f",
+                  fontFamily: "Open-Dyslexic",
+                  color: "#6c3428",
+                  marginTop: 10,
+                }}
+                variant="contained"
+                onClick={() => {
+                  console.log("Get another recipe");
+                }}
+              >
+                YES I LIKE THIS<CaretRightFill></CaretRightFill>
+              </Button>
+            </Link>
+            <Link to="/">
+              <Button
+                style={{
+                  borderRadius: 20,
+                  borderColor: "#6c3428",
+                  fontFamily: "Open-Dyslexic",
+                  color: "#6c3428",
+                  marginTop: 10,
+                  maxWidth: 250,
+                }}
+                variant="outlined"
+                onClick={() => {
+                  console.log("Get another recipe");
+                }}
+              >
+                <CaretLeftFill></CaretLeftFill>Noooo, I want to go back and try again.
+              </Button>
+            </Link>
+          </div>
+
         </div>
-        <Link to="/recipe-details">
-        <Button
-          style={{
-            borderRadius: 20,
-            backgroundColor: "#f4c17f",
-            fontFamily: "Open-Dyslexic",
-            color: "#6c3428",
-            marginTop: 10,
-          }}
-          variant="contained"
-          onClick={() => {
-            console.log("Get another recipe");
-          }}
-        >
-          <CaretLeftFill></CaretLeftFill>YES I LIKE THIS
-        </Button></Link>
-        <Link to="/">
-        <Button
-          style={{
-            borderRadius: 20,
-            backgroundColor: "#f4c17f",
-            fontFamily: "Open-Dyslexic",
-            color: "#6c3428",
-            marginTop: 10,
-          }}
-          variant="contained"
-          onClick={() => {
-            console.log("Get another recipe");
-          }}
-        >
-          <CaretLeftFill></CaretLeftFill>Noooo, I want to go back and try again.
-        </Button></Link>
+
       </div>
     </>
   );
