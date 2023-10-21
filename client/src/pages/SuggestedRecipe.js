@@ -25,21 +25,21 @@ const SPOON_API_URL = "https://api.spoonacular.com";
 
 function SuggestedRecipe() {
   const { recipeId } = useParams();
-  const [recipe, setRecipe] = useState([]);
+  const [recipeInfo, setRecipeInfo] = useState([]);
 
   let url = `${SPOON_API_URL}/recipes/${recipeId}/information?includeNutrition=false&apiKey=${SPOON_API_KEY}`
   let headers = { 'Content-Type': 'application/json' }
 
   useEffect(() => {
     axios
-      .get((url = url), (headers = headers))
-      .then((response) => {
-        console.log(response)
-        // setRecipe(response.data)
-      })
-      .catch((error) => {
-        console.log("There was an error and here it is: ", error);
-      });
+    .get((url = url), (headers = headers))
+    .then((response) => {
+      console.log(response)
+      setRecipeInfo(response.data)
+    })
+    .catch((error) => {
+      console.log("There was an error and here it is: ", error);
+    });
   }, [])
 
   const dummyIngredients = ["Onions", "Potatoes", "Chicken", "Salt", "Oil"];
@@ -59,10 +59,10 @@ function SuggestedRecipe() {
           </h1>
           <div className="card card-grid">
             <div className="card-image-container">
-              <img src={imageSource} />
+              <img src={recipeInfo.image}/>
             </div>
             <div className="card-details-container">
-              <h2 className="text-center">{recipeName}</h2>
+              <h2>{recipeInfo.title}</h2>
 
               <ul className="ingredients">
                 {dummyIngredients.map((ingredient) => (

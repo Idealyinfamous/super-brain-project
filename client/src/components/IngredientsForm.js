@@ -71,7 +71,6 @@ const IngredientsForm = () => {
       });
   }
 
-  // TODO fix unique key error
   return (
     <div className="ingredients-form">
       <form>
