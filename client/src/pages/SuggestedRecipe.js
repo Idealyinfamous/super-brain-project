@@ -379,7 +379,7 @@ function SuggestedRecipe() {
         ],
       },
     });
-    setLoading(true);
+    setLoading(false);
   }, []);
 
   if (recipeInfo && recipeInfo.extendedIngredients && !loading) {
@@ -428,7 +428,15 @@ function SuggestedRecipe() {
                   }}
                   variant="contained"
                   onClick={() => {
-                    console.log("Get another recipe");
+                    const jsConfetti = new JSConfetti();
+                    jsConfetti.addConfetti({
+                      emojis: ["🥕", "🌽", "🍇", "🍅", "🍒", "🍐"],
+                      emojiSize: 50,
+                      confettiRadius: 8,
+                      confettiNumber: 400,
+                    });
+
+                    jsConfetti.addConfetti();
                   }}
                 >
                   YES I LIKE THIS<CaretRightFill></CaretRightFill>
