@@ -1,6 +1,7 @@
 import * as  React from 'react'
 import { styled } from '@mui/material/styles';
 import { Paper, Grid, Container, Button, Card, CardActions, CardContent, CardMedia, Typography } from '@mui/material'
+import {Link } from "react-router-dom";
 
 import JSConfetti from 'js-confetti'
 
@@ -9,6 +10,7 @@ function RecipeCard(recipe_id,title,image) {
   return (
     <>
       <Container fixed >
+      <Link to={`../recipe-details/${recipe_id}`}>
         <Card elevation={12}
           sx={{ border: "1px solid #F4C17F", borderRadius: 5, 
           // backgroundColor: "#6BA0B2", 
@@ -20,7 +22,7 @@ function RecipeCard(recipe_id,title,image) {
               emojiSize: 50,
               confettiRadius: 8,
               confettiNumber: 400,
-
+              
             });
 
             jsConfetti.addConfetti();
@@ -47,6 +49,7 @@ function RecipeCard(recipe_id,title,image) {
             </Grid>
           </Grid>
         </Card>
+        </Link>
       </Container>
 
     </>
