@@ -1,4 +1,4 @@
-import {React, useState, useEffect} from "react";
+import { React, useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { PassageAuthGuard } from "@passageidentity/passage-react";
 import { usePassageUserInfo } from "../hooks/";
@@ -14,15 +14,27 @@ function RecipeDetails() {
   const { recipeId } = useParams();
   const [recipe, setRecipe] = useState([]);
 
-  let url = `${SPOON_API_URL}/recipes/${recipeId}/information?includeNutrition=false&apiKey=${SPOON_API_KEY}`;
   let headers = { "Content-Type": "application/json" };
 
   useEffect(() => {
     axios
-      .get((url = url), (headers = headers))
+      .get(
+        (url = `${SPOON_API_URL}/recipes/${recipeId}/information?includeNutrition=false&apiKey=${SPOON_API_KEY}`),
+        (headers = headers)
+      )
       .then((response) => {
         console.log(response);
-        setRecipe(response.data)
+        setRecipe(response.data);
+      })
+      .catch((error) => {
+        console.log("There was an error and here it is: ", error);
+      });
+
+    axios
+      .get((url = `${SPOON_API_URL}/recipes/${recipeId}/analyzedInstructions&apiKey=${SPOON_API_KEY}`), (headers = headers))
+      .then((response) => {
+        console.log(response);
+        setRecipe(response.data);
       })
       .catch((error) => {
         console.log("There was an error and here it is: ", error);
