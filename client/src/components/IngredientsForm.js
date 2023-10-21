@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import Chip from '@mui/material/Chip';
 import { CaretRightFill } from "react-bootstrap-icons";
 import { useNavigate } from 'react-router-dom';
 
@@ -75,16 +76,27 @@ const IngredientsForm = () => {
     <div className="ingredients-form">
       <form>
         <Autocomplete
-          multiple
-          options={ingredients}
-          getOptionLabel={(option) => option.name}
-          value={selectedOptions}
-          onChange={(event, newValue) => setSelectedOptions(newValue)}
-          renderInput={(params) => (
-            <TextField
-             {...params} label="Select ingredients" />
-          )}
-        />
+        multiple
+        options={ingredients}
+        getOptionLabel={(option) => option.name}
+        value={selectedOptions}
+        onChange={(event, newValue) => setSelectedOptions(newValue)}
+        renderInput={(params) => (
+          <TextField {...params} label="Select ingredients" />
+        )}
+        limitTags={5} // Set the maximum number of displayed tags
+        renderTags={(value, getTagProps) => (
+          <div>
+            {value.slice(0, 5).map((option, index) => (
+              <Chip
+                label={option.name}
+                {...getTagProps({ index })}
+                key={option.id}
+              />
+            ))}
+          </div>
+        )}
+      />
         <br />
         <Button
         style={
