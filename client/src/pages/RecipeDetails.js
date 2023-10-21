@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-import React from "react";
-=======
 import { React, useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
->>>>>>> 5676cc05fc94f10c084a236fb6592e3c54d7bb56
 import { PassageAuthGuard } from "@passageidentity/passage-react";
 import { usePassageUserInfo } from "../hooks/";
 import { PlusCircle, CaretLeftFill } from "react-bootstrap-icons";
