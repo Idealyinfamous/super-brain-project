@@ -17,7 +17,7 @@ const App = () => {
         <Routes>
           <Route path="register-or-login" element={<Passage />} />
           <Route path="/" element={<HomePage />} />
-          <Route path="suggested-recipe/:id" element={<SuggestedRecipe />} />
+          <Route path="suggested-recipe/:recipeId" element={<SuggestedRecipe />} />
           <Route path="recipe-details" element={<RecipeDetails />} />
           <Route path="my-saved-recipes" element={<MyRecipes />} />
         </Routes>
