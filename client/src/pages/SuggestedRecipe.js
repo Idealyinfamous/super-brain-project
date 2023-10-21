@@ -379,7 +379,7 @@ function SuggestedRecipe() {
         ],
       },
     });
-    setLoading(false);
+    setLoading(true);
   }, []);
 
   if (recipeInfo && recipeInfo.extendedIngredients && !loading) {
