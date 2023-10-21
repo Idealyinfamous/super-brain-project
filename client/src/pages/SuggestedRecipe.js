@@ -1,6 +1,7 @@
 import { React, useEffect, useState } from "react";
 import { useParams, Link } from 'react-router-dom';
 import { PlusCircle, CaretLeftFill } from "react-bootstrap-icons";
+import  SlotMachine from "../components/SlotMachine/SlotMachine";
 
 import { styled } from "@mui/material/styles";
 import {
@@ -49,6 +50,7 @@ function SuggestedRecipe() {
 
   return (
     <>
+      <SlotMachine />
       <div className="wrapper">
         <div>
           <h1>

@@ -6,10 +6,10 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import "./SlotMachine.scss";
-import slotreel from "./slotreel.webp";
+import foodstrip from "./foodstrip.png";
 import "./slotMachineFunctionality.js";
 
-export default function LogInPrompt() {
+export default function SlotMachine() {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -41,7 +41,7 @@ export default function LogInPrompt() {
           <div id="debug" className="debug"></div>
 
           <img
-            src={slotreel}
+            src={foodstrip}
             style={{
               position: "fixed",
               left: 0,
@@ -51,6 +51,7 @@ export default function LogInPrompt() {
             }}
           />
         </DialogContent>
+
       </Dialog>
     </div>
   );
