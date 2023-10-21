@@ -23,6 +23,7 @@ import {
 // import Button from '@mui/material/Button'
 import JSConfetti from "js-confetti";
 import axios from "axios";
+import LargeParagraph from "../components/LargeParagraph";
 
 const SPOON_API_KEY = "a96058abd5a1493b811ccd7bf0e449f9";
 const SPOON_API_URL = "https://api.spoonacular.com";
@@ -398,9 +399,9 @@ function SuggestedRecipe() {
               <div className="card-details-container">
                 <h2 className="text-center">{recipeInfo.title}</h2>
 
-                <ul>
+                <ul className="ingredients">
                   {recipeInfo.extendedIngredients.map((ingredient, index) => (
-                    <li key={index}>{ingredient.name}</li>
+                    <li className="ingredient" key={index}>{ingredient.name}</li>
                   ))}
                 </ul>
                 <div className="times-container">
@@ -410,8 +411,8 @@ function SuggestedRecipe() {
                     </p>
                   </div>
                 </div>
-                <h3>Description</h3>
-                <p dangerouslySetInnerHTML={{ __html: recipeInfo.summary }} />
+                <h3>Description</h3>  
+                <LargeParagraph text={recipeInfo.summary}/>
               </div>
             </div>
 

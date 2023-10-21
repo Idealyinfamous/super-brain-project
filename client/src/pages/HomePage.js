@@ -8,6 +8,8 @@ function HomePage() {
     console.log("submitting")
   }
 
+  document.body.style.backgroundColor = "white";
+
   return (
     <>
       <div className="wrapper">
