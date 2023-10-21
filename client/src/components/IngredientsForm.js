@@ -60,15 +60,16 @@ const IngredientsForm = () => {
     let slugifiedIngredientString = slugifiedIngredientList.join(",+");
     let url = `${SPOON_API_URL}/recipes/findByIngredients?apiKey=${SPOON_API_KEY}&number=1&ranking=1&ingredients=${slugifiedIngredientString}`;
     let headers = { "Content-Type": "application/json" };
-    axios
-      .get((url = url), (headers = headers))
-      .then((response) => {
-        // TODO what if it doesn't return a recipe
-        navigate(`/suggested-recipe/${response.data[0]["id"]}`);
-      })
-      .catch((error) => {
-        console.log("There was an error and here it is: ", error);
-      });
+    // axios
+      // .get((url = url), (headers = headers))
+      // .then((response) => {
+      //   // TODO what if it doesn't return a recipe
+      //   navigate(`/suggested-recipe/${response.data[0]["id"]}`);
+      // })
+      // .catch((error) => {
+      //   console.log("There was an error and here it is: ", error);
+      // });
+      navigate("/suggested-recipe/632075")
   };
 
   return (
