@@ -70,10 +70,6 @@ function RecipeDetails() {
 
   return (
     <>
-<<<<<<< HEAD
-
-=======
->>>>>>> 5676cc05fc94f10c084a236fb6592e3c54d7bb56
       <div id="recipe-details-section">
         <h1 className="text-center">Recipe Name</h1>
         <div className="details">
