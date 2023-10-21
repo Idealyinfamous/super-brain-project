@@ -27,8 +27,6 @@ h1, h2, h3, h4, h5, h6{
   box-shadow: 5px 5px 10px #466579;
 }
 
-
-
 .img-container{
   width: 100%;
   aspect-ratio: 10 / 4;
@@ -104,6 +102,35 @@ h1, h2, h3, h4, h5, h6{
   background-color: #282c34;
   border-radius: 10px;
   font-size: 1px;
+}
+
+.card-grid{
+  display: grid;
+  grid-template-columns: 40% 1fr;
+  grid-template-rows: 1fr;
+  padding: 0.75em;
+}
+
+.card-image-container{
+  grid-row: 1;
+  grid-column: 1;
+  border: 1px solid #f4c17f;
+  border-radius: 20px;
+  background-color: #61dafb;
+}
+
+.card-details-container{
+  grid-column: 2;
+  border: 1px solid black;
+}
+
+.ingredients{
+  display: flex;
+  flex-wrap: wrap;
+}
+.ingredient{
+  list-style: none;
+  padding: 0.25em;
 }
 
 
