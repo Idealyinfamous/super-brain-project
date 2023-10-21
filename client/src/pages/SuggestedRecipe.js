@@ -1,5 +1,7 @@
 import { React, useEffect, useState } from "react";
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+import { PlusCircle, CaretLeftFill } from "react-bootstrap-icons";
+
 import { styled } from "@mui/material/styles";
 import {
   Paper,
@@ -24,7 +26,7 @@ function SuggestedRecipe() {
   const { recipeId } = useParams();
   const [recipe, setRecipe] = useState([]);
 
-  let url = `${SPOON_API_URL}/recipes/${recipeId}/information?apiKey=${SPOON_API_KEY}`
+  let url = `${SPOON_API_URL}/recipes/${recipeId}/information?includeNutrition=false&apiKey=${SPOON_API_KEY}`
   let headers = { 'Content-Type': 'application/json' }
 
   useEffect(() => {
@@ -73,6 +75,38 @@ function SuggestedRecipe() {
             </div>
           </div>
         </div>
+        <Link to="/recipe-details">
+        <Button
+          style={{
+            borderRadius: 20,
+            backgroundColor: "#f4c17f",
+            fontFamily: "Open-Dyslexic",
+            color: "#6c3428",
+            marginTop: 10,
+          }}
+          variant="contained"
+          onClick={() => {
+            console.log("Get another recipe");
+          }}
+        >
+          <CaretLeftFill></CaretLeftFill>YES I LIKE THIS
+        </Button></Link>
+        <Link to="/">
+        <Button
+          style={{
+            borderRadius: 20,
+            backgroundColor: "#f4c17f",
+            fontFamily: "Open-Dyslexic",
+            color: "#6c3428",
+            marginTop: 10,
+          }}
+          variant="contained"
+          onClick={() => {
+            console.log("Get another recipe");
+          }}
+        >
+          <CaretLeftFill></CaretLeftFill>Noooo, I want to go back and try again.
+        </Button></Link>
       </div>
     </>
   );

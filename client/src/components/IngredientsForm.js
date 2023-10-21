@@ -86,12 +86,6 @@ const IngredientsForm = () => {
           )}
         />
         <br />
-
-        {/*
-        Do you want this button to take you to suggested recipe?
-        Is that where the slot-machine will be?
-         <Link to = "/suggested-recipe">
-         */}
         <Button
         style={
           {
@@ -119,20 +113,7 @@ const IngredientsForm = () => {
                   Get recipe
                   <CaretRightFill></CaretRightFill>
         </Button>
-        {/* </Link> */}
       </form>
-      {submittedOptions.length > 0 && (
-        <div>
-          <p>You submitted:</p>
-          <ul>
-            {submittedOptions.map((option) => (
-              <li key={option.id}>
-                {option.id} {option.name}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
     </div>
   );
 };
