@@ -29,11 +29,12 @@ const slugify = (ingredientName) => {
 
 const IngredientsForm = () => {
   const navigate = useNavigate();
+  const [ingredients, setIngredients] = useState([]); // this is populated by data from our own backend
 
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [submittedOptions, setSubmittedOptions] = useState([]);
-
-  const [ingredients, setIngredients] = useState([]);
+  const [recipeId, setRecipeId] = useState(null);
+  const [repipeApiError, setRecipeApiError] = useState(false);
 
   useEffect(() => {
     axios
@@ -61,15 +62,20 @@ const IngredientsForm = () => {
     let url = `${SPOON_API_URL}/recipes/findByIngredients?apiKey=${SPOON_API_KEY}&number=1&ranking=1&ingredients=${slugifiedIngredientString}`;
     let headers = { "Content-Type": "application/json" };
     // axios
-      // .get((url = url), (headers = headers))
-      // .then((response) => {
-      //   // TODO what if it doesn't return a recipe
-      //   navigate(`/suggested-recipe/${response.data[0]["id"]}`);
-      // })
-      // .catch((error) => {
-      //   console.log("There was an error and here it is: ", error);
-      // });
-      navigate("/suggested-recipe/632075")
+    //   .get((url = url), (headers = headers))
+    //   .then((response) => {
+    //     if (response.data.length > 0) {
+    //       setRecipeId(response.data[0]["id"])
+    //       navigate(`/suggested-recipe/${recipeId}`);
+    //     } else {
+    //       setRecipeApiError(true)
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     console.log("There was an error and here it is: ", error);
+    //     setRecipeApiError(true)
+    //   });
+    navigate("/suggested-recipe/632075");
   };
 
   return (
@@ -125,6 +131,9 @@ const IngredientsForm = () => {
           <CaretRightFill></CaretRightFill>
         </Button>
       </form>
+      {repipeApiError ? (
+        <div>There's been a problem. Please try again.</div>
+      ) : null}
     </div>
   );
 };
