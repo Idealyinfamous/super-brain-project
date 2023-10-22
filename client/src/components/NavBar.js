@@ -5,20 +5,15 @@ import { PassageUser } from '@passageidentity/passage-elements/passage-user';
 import LogoutButton from './LogOutButton';
 
 
+
 function NavBar() {
 
     return (
-        // <div>
-        //     <Link to="/">Get a Recipe</Link>
-        //     <Link to="/my-saved-recipes">My Saved Recipes</Link>
-        //     {/* <Link to="/recipe-details">Recipe Details</Link> */}
-        //     <Link to="/register-or-login">Register or Login</Link>
-        //     <span><LogoutButton/></span>
-        // </div>
-
-        //-----Hopefully this is prettier
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/">Recipe Finder</a>
+        <a class="navbar-brand my-1" href="/">
+        <img src={"./NavBarLogo.png"} width="35" height="35" class="rounded-circle d-inline-block mr-2" alt=""/>
+            Recipe Finder
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -30,14 +25,13 @@ function NavBar() {
                 <li class="nav-item">
                     <a class="nav-link" href="/my-saved-recipes">Saved Recipes</a>
                 </li>
-                <li class="nav-item dropdown mr-sm-2">
-                    <a class="nav-link dropdown-toggle " href="/register-or-login" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="/register-or-login" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Sign Up
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="/register-or-login">Register or Login</a>
                         <span class="dropdown-item "><LogoutButton/></span>
-
                     </div>
                 </li>
             </ul>
