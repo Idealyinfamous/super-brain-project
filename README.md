@@ -1,4 +1,4 @@
-# Recipe Finder
+# FOCUS FOOD
 
 ![Super Brains Logo](./client/public/SuperBrains.png)
 ## Super Brains Team
@@ -18,7 +18,7 @@ Many of us face challenges deciding about their next meal. But to some this mino
 We wanted to design a site to address ADHD Decision paralysis,  Dietary/Allergy management, and Food waste reduction.
 
 ## Description
- Our Recipe Finder app minimizes distractions by allowing users to swiftly select ingredients and presents recipes with minimal interruption, using a slot machine animation to maintain engagement. This approach optimizes the user’s path to finding  a recipe, minimizing interruptions and ensuring a user-friendly, distraction-focused experience. 
+ Our Focus Food app minimizes distractions by allowing users to swiftly select ingredients and presents recipes with minimal interruption, using a slot machine animation to maintain engagement. This approach optimizes the user’s path to finding  a recipe, minimizing interruptions and ensuring a user-friendly, distraction-focused experience. 
 
 ## Technologies Used
 
@@ -31,9 +31,19 @@ We wanted to design a site to address ADHD Decision paralysis,  Dietary/Allergy 
 * iPassage
 * MySQL
 
-## Recipe Finder
+## The Build
 
-![RecipeFinder Site screenshot](./client/public/RecipeFinder.png)
+Wire Framing
+![Wire Frame 1](./client/public/W1-80.jpg)
+![Wire Frame 2](./client/public/W2-80.jpg)
+![Wire Frame 3](./client/public/W3-80.jpg)
+![Wire Frame 4](./client/public/W4-80.jpg)
+
+Design Details
+![Design Details](./client/public/Design-80.jpg)
+
+## The final Product: FOCUS FOOD
+![Focus Food Site screenshot](./client/public/RecipeFinder.png)
 
 https://super-brain-project-be6540d39f39.herokuapp.com/
 
