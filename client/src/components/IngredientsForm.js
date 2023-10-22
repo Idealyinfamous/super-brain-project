@@ -61,21 +61,20 @@ const IngredientsForm = () => {
     let slugifiedIngredientString = slugifiedIngredientList.join(",+");
     let url = `${SPOON_API_URL}/recipes/findByIngredients?apiKey=${SPOON_API_KEY}&number=1&ranking=1&ingredients=${slugifiedIngredientString}`;
     let headers = { "Content-Type": "application/json" };
-    // axios
-    //   .get((url = url), (headers = headers))
-    //   .then((response) => {
-    //     if (response.data.length > 0) {
-    //       setRecipeId(response.data[0]["id"])
-    //       navigate(`/suggested-recipe/${recipeId}`);
-    //     } else {
-    //       setRecipeApiError(true)
-    //     }
-    //   })
-    //   .catch((error) => {
-    //     console.log("There was an error and here it is: ", error);
-    //     setRecipeApiError(true)
-    //   });
-    navigate("/suggested-recipe/632075");
+    axios
+      .get((url = url), (headers = headers))
+      .then((response) => {
+        if (response.data.length > 0) {
+          setRecipeId(response.data[0]["id"]);
+          navigate(`/suggested-recipe/${response.data[0]["id"]}`);
+        } else {
+          setRecipeApiError(true);
+        }
+      })
+      .catch((error) => {
+        console.log("There was an error and here it is: ", error);
+        setRecipeApiError(true);
+      });
   };
 
   return (
