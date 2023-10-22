@@ -15,7 +15,7 @@ function NavBar() {
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <a className="navbar-brand my-1" href="/">
         <img src={"./NavBarLogo.png"} width="35" height="35" className="rounded-circle d-inline-block mr-2" alt=""/>
-        FOCUS FOOD
+            <span id="fontForNav">FOCUS FOOD</span>
         </a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
