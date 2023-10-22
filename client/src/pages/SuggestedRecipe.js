@@ -73,7 +73,7 @@ function SuggestedRecipe() {
 
             <div className="card card-grid">
               <div className="card-image-container">
-                <img src={recipeInfo.image} />
+                <img src={recipeInfo.image} style={{maxHeight: '100%'}}/>
               </div>
               <div className="card-details-container">
                 <h2 className="text-center">{recipeInfo.title}</h2>

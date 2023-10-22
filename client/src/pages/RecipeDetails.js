@@ -85,7 +85,7 @@ function RecipeDetails() {
         <div id="recipe-details-section">
           <div className="details">
             <div className="img-container">
-              <img src={recipeInfo.image} />
+              <img src={recipeInfo.image} style={{maxHeight: '100%'}}/>
             </div>
             <p className="text-center icon">
               <PlusCircle onClick={handleSaveRecipeClick} />
