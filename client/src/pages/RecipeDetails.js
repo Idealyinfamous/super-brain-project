@@ -8,7 +8,7 @@ import RecipeSavedAlert from "../components/Alerts/RecipeSavedAlert";
 
 import { useMyContext } from '../components/MyContext';
 
-const SPOON_API_KEY = "a96058abd5a1493b811ccd7bf0e449f9";
+const SPOON_API_KEY = "211a5be1593a4998b32368d3b3517ac6";
 const SPOON_API_URL = "https://api.spoonacular.com";
 
 

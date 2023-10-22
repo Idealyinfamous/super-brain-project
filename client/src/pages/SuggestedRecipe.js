@@ -27,7 +27,7 @@ import { useMyContext } from '../components/MyContext';
 //set global variable GlobalRecipeID as selected recipeID when navigating to recipedetails page - GlobalRecipeID used in navbar to allow recipedetails to populate by last accessed recipeID
 import LargeParagraph from "../components/LargeParagraph";
 
-const SPOON_API_KEY = "a96058abd5a1493b811ccd7bf0e449f9";
+const SPOON_API_KEY = "211a5be1593a4998b32368d3b3517ac6";
 const SPOON_API_URL = "https://api.spoonacular.com";
 
 function SuggestedRecipe() {

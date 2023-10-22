@@ -12,14 +12,6 @@ function NavBar() {
     const { GlobalRecipeID, setGlobalRecipeID } = useMyContext();
 
     return (
-<<<<<<< HEAD
-        <div>
-            <Link to="/">Get a Recipe</Link>
-            <Link to="/my-saved-recipes">My Saved Recipes</Link>
-            <Link to={`/recipe-details/${GlobalRecipeID}`}>Recipe Details</Link>
-            <Link to="/register-or-login">Register or Login</Link>
-            <span><LogoutButton/></span>
-=======
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand my-1" href="/">
         <img src={"./NavBarLogo.png"} width="35" height="35" class="rounded-circle d-inline-block mr-2" alt=""/>
@@ -46,7 +38,6 @@ function NavBar() {
                     </div>
                 </li>
             </ul>
->>>>>>> main
         </div>
     </nav>
     )
