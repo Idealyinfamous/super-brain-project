@@ -4,12 +4,12 @@ import { Paper, Grid, Container, Button, Card, CardActions, CardContent, CardMed
 import {Link } from "react-router-dom";
 import JSConfetti from 'js-confetti'
 import { useMyContext } from '../components/MyContext';
-//set global variable puppypancakes as selected recipeID when navigating to recipedetails page - puppypancakes used in navbar to allow recipedetails to populate by last accessed recipeID
+//set global variable GlobalRecipeID as selected recipeID when navigating to recipedetails page - GlobalRecipeID used in navbar to allow recipedetails to populate by last accessed recipeID
 
 
 function RecipeCard(recipe_id,title,image) {
-  const { puppypancakes, setPuppyPancakes } = useMyContext();
-  console.log(`initial puppypancakes ${puppypancakes}`)
+  const { GlobalRecipeID, setGlobalRecipeID } = useMyContext();
+  console.log(`initial GlobalRecipeID ${GlobalRecipeID}`)
   return (
     <>
       <Container fixed >
@@ -19,8 +19,8 @@ function RecipeCard(recipe_id,title,image) {
           // backgroundColor: "#6BA0B2", 
           padding: 2, margin: 4 }}
           onClick={() => {
-            setPuppyPancakes(recipe_id)
-            console.log(`pp equal to recipeId from useParams ${puppypancakes}`)
+            setGlobalRecipeID(recipe_id)
+            console.log(`pp equal to recipeId from useParams ${GlobalRecipeID}`)
           
             const jsConfetti = new JSConfetti();
             jsConfetti.addConfetti({

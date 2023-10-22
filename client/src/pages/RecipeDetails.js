@@ -16,10 +16,10 @@ function RecipeDetails() {
   const { userInfo, loading } = usePassageUserInfo();
   const { recipeId } = useParams();
   const [recipeInfo, setRecipeInfo] = useState([]);
-  const { puppypancakes, setPuppyPancakes } = useMyContext();
-  console.log(`initial puppypancakes ${puppypancakes}`)
-  setPuppyPancakes(recipeId)
-  console.log(`pp equal to recipeId from useParams ${puppypancakes}`)
+  const { GlobalRecipeID, setGlobalRecipeID } = useMyContext();
+  console.log(`initial GlobalRecipeID ${GlobalRecipeID}`)
+  setGlobalRecipeID(recipeId)
+  console.log(`pp equal to recipeId from useParams ${GlobalRecipeID}`)
 
   useEffect(() => {
     axios
