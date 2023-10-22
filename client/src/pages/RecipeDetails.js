@@ -5,13 +5,21 @@ import { PlusCircle, CaretLeftFill } from "react-bootstrap-icons";
 import Button from "@mui/material/Button";
 import axios from "axios";
 
+import { useMyContext } from '../components/MyContext';
+
 const SPOON_API_KEY = "a96058abd5a1493b811ccd7bf0e449f9";
 const SPOON_API_URL = "https://api.spoonacular.com";
+
+
 
 function RecipeDetails() {
   const { userInfo, loading } = usePassageUserInfo();
   const { recipeId } = useParams();
   const [recipeInfo, setRecipeInfo] = useState([]);
+  const { puppypancakes, setPuppyPancakes } = useMyContext();
+  console.log(`initial puppypancakes ${puppypancakes}`)
+  setPuppyPancakes(recipeId)
+  console.log(`pp equal to recipeId from useParams ${puppypancakes}`)
 
   useEffect(() => {
     axios

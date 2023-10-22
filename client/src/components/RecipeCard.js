@@ -2,11 +2,14 @@ import * as  React from 'react'
 import { styled } from '@mui/material/styles';
 import { Paper, Grid, Container, Button, Card, CardActions, CardContent, CardMedia, Typography } from '@mui/material'
 import {Link } from "react-router-dom";
-
 import JSConfetti from 'js-confetti'
+import { useMyContext } from '../components/MyContext';
+//set global variable puppypancakes as selected recipeID when navigating to recipedetails page - puppypancakes used in navbar to allow recipedetails to populate by last accessed recipeID
 
 
 function RecipeCard(recipe_id,title,image) {
+  const { puppypancakes, setPuppyPancakes } = useMyContext();
+  console.log(`initial puppypancakes ${puppypancakes}`)
   return (
     <>
       <Container fixed >
@@ -16,6 +19,9 @@ function RecipeCard(recipe_id,title,image) {
           // backgroundColor: "#6BA0B2", 
           padding: 2, margin: 4 }}
           onClick={() => {
+            setPuppyPancakes(recipe_id)
+            console.log(`pp equal to recipeId from useParams ${puppypancakes}`)
+          
             const jsConfetti = new JSConfetti();
             jsConfetti.addConfetti({
               emojis: ["🥕", "🌽", "🍇", "🍅", "🍒", "🍐"],

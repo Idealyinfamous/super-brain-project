@@ -5,7 +5,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import RecipeCard from "../components/RecipeCard";
 
-function Dashboard() {
+function MySavedRecipes() {
   const { userInfo, loading } = usePassageUserInfo();
   const [ myRecipes, setMyRecipes ] = useState([]);
 
@@ -58,4 +58,4 @@ function Dashboard() {
   }
 }
 
-export default Dashboard;
+export default MySavedRecipes;

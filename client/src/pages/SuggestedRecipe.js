@@ -23,15 +23,22 @@ import {
 // import Button from '@mui/material/Button'
 import JSConfetti from "js-confetti";
 import axios from "axios";
+import { useMyContext } from '../components/MyContext';
+//set global variable puppypancakes as selected recipeID when navigating to recipedetails page - puppypancakes used in navbar to allow recipedetails to populate by last accessed recipeID
 
 const SPOON_API_KEY = "a96058abd5a1493b811ccd7bf0e449f9";
 const SPOON_API_URL = "https://api.spoonacular.com";
 
 function SuggestedRecipe() {
+  // console.log(`initial puppypancakes ${puppypancakes}`)
   const [loading, setLoading] = useState(false);
+
 
   const { recipeId } = useParams();
   const [recipeInfo, setRecipeInfo] = useState([]);
+  const { puppypancakes, setPuppyPancakes } = useMyContext();
+  setPuppyPancakes(recipeId)
+  console.log(`pp equal to recipeId from useParams ${puppypancakes}`)
 
   let url = `${SPOON_API_URL}/recipes/${recipeId}/information?includeNutrition=false&apiKey=${SPOON_API_KEY}`;
   let headers = { "Content-Type": "application/json" };

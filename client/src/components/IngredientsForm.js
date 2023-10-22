@@ -58,13 +58,21 @@ const IngredientsForm = () => {
       slugify(ingredient["name"])
     );
     let slugifiedIngredientString = slugifiedIngredientList.join(",+");
-    let url = `${SPOON_API_URL}/recipes/findByIngredients?apiKey=${SPOON_API_KEY}&number=1&ranking=1&ingredients=${slugifiedIngredientString}`;
+
+    //generate a random number between 1 and 100 (spoonacular docs  number = The maximum number of recipes to return (between 1 and 100). Defaults to 10. )
+
+    const randomRecipeNumber = Math.floor(Math.random() * 100) + 1;
+
+    let url = `${SPOON_API_URL}/recipes/findByIngredients?apiKey=${SPOON_API_KEY}&number=${randomRecipeNumber}&ranking=1&ingredients=${slugifiedIngredientString}`;
     let headers = { "Content-Type": "application/json" };
     axios
       .get((url = url), (headers = headers))
       .then((response) => {
         // TODO what if it doesn't return a recipe
-        navigate(`/suggested-recipe/${response.data[0]["id"]}`);
+        //choose last recipe in array to vary returned recipe
+        let lastrecipe = (response.data.length-1);
+        console.log(lastrecipe)
+        navigate(`/suggested-recipe/${response.data[lastrecipe]["id"]}`);
       })
       .catch((error) => {
         console.log("There was an error and here it is: ", error);
