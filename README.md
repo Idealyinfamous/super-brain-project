@@ -1,4 +1,4 @@
-# Meal decider 
+# Recipe Finder
 
 ![Super Brains Logo](./client/public/SuperBrains.png)
 ## Super Brains Team
@@ -13,7 +13,7 @@
 ##  Purpose/Mission
 Women Who Code Hackathon for Social Good 2023 
 
-    Many of us face challenges deciding about their next meal. But to some this minor inconvenience  can be completely debilitating. Sometimes to the point where it is a danger to ones health. With [ Food decider], we hope to cut down on the complexities and anxiety of meal decisions by providing only relevant data within the [ Food decider] app.Our app might not be able to completely solve the riddle of decision-stall but it can help with managing it. Making the meal decision easier for all.
+Many of us face challenges deciding about their next meal. But to some this minor inconvenience  can be completely debilitating. Sometimes to the point where it is a danger to ones health. With [ Food decider], we hope to cut down on the complexities and anxiety of meal decisions by providing only relevant data within the [ Food decider] app.Our app might not be able to completely solve the riddle of decision-stall but it can help with managing it. Making the meal decision easier for all.
 
 We wanted to design a site to address ADHD Decision paralysis,  Dietary/Allergy management, and Food waste reduction.
 
