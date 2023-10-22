@@ -9,8 +9,7 @@ def index():
 
 @app.route('/recipe-by-user-id/<id>', methods=['get'])
 def my_recipes(id):
-    result = Recipe.get_recipes_by_user_id(id)
-    return result
+    return Recipe.get_recipes_by_user_id(id)
 
 @app.route('/save_recipe', methods=['post'])
 def save_recipe():
@@ -23,13 +22,5 @@ def ingredients():
     return parse_ingredients_list()
 
 def parse_ingredients_list():
-    results = []
     with open("./ingredients.csv", "r") as file:
-        for line in file:
-            line2 = line.strip()
-            parts = line2.split(";")
-            ingredient = {}
-            ingredient["name"] = parts[0]
-            ingredient["id"] = parts[1]
-            results.append(ingredient)
-    return results
+        return [{"name": line.split(";")[0], "id": line.split(";")[1].strip()} for line in file]

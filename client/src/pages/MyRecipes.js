@@ -1,13 +1,13 @@
 import { PassageAuthGuard } from "@passageidentity/passage-react";
 import { usePassageUserInfo } from "../hooks/";
-import LogOutButton from "../components/LogOutButton";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import RecipeCard from "../components/RecipeCard";
 
 function MySavedRecipes() {
   const { userInfo, loading } = usePassageUserInfo();
-  const [ myRecipes, setMyRecipes ] = useState([]);
+  const [myRecipes, setMyRecipes] = useState([]);
 
   useEffect(() => {
     if (userInfo) {
@@ -43,15 +43,21 @@ function MySavedRecipes() {
           <h1 style={{ color: "#6C3428", textAlign: "center" }}>
             My Saved Recipes
           </h1>
-          <div>
-            <ul style={{ listStyle: "none" }}>
-              {myRecipes.map((item, index) => (
-                <li key={index}>
-                  {RecipeCard(item.recipe_id, item.title, item.image)}
-                </li>
-              ))}
-            </ul>
-          </div>
+          {myRecipes.length > 0 ? (
+            <div>
+              <ul style={{ listStyle: "none" }}>
+                {myRecipes.map((item, index) => (
+                  <Link to={`/recipe-details/${item.recipe_id}`} style={{textDecoration: 'none'}}>
+                    <li key={index}>
+                      {RecipeCard(item.recipe_id, item.title, item.image)}
+                    </li>
+                  </Link>
+                ))}
+              </ul>
+            </div>
+          ) : (
+            <div>You have no recipes to show.</div>
+          )}
         </div>
       </PassageAuthGuard>
     );

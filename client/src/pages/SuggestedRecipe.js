@@ -25,13 +25,13 @@ import JSConfetti from "js-confetti";
 import axios from "axios";
 import { useMyContext } from '../components/MyContext';
 //set global variable GlobalRecipeID as selected recipeID when navigating to recipedetails page - GlobalRecipeID used in navbar to allow recipedetails to populate by last accessed recipeID
+import LargeParagraph from "../components/LargeParagraph";
 
 const SPOON_API_KEY = "a96058abd5a1493b811ccd7bf0e449f9";
 const SPOON_API_URL = "https://api.spoonacular.com";
 
 function SuggestedRecipe() {
-  // console.log(`initial GlobalRecipeID ${GlobalRecipeID}`)
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
 
   const { recipeId } = useParams();
@@ -59,6 +59,7 @@ function SuggestedRecipe() {
         console.log("There was an error and here it is: ", error);
         setLoading(false);
       });
+    setLoading(false);
   }, []);
 
   if (recipeInfo && recipeInfo.extendedIngredients && !loading) {
@@ -77,9 +78,9 @@ function SuggestedRecipe() {
               <div className="card-details-container">
                 <h2 className="text-center">{recipeInfo.title}</h2>
 
-                <ul>
+                <ul className="ingredients">
                   {recipeInfo.extendedIngredients.map((ingredient, index) => (
-                    <li key={index}>{ingredient.name}</li>
+                    <li className="ingredient" key={index}>{ingredient.name}</li>
                   ))}
                 </ul>
                 <div className="times-container">
@@ -90,11 +91,12 @@ function SuggestedRecipe() {
                   </div>
                 </div>
                 <h3>Description</h3>
-                <p dangerouslySetInnerHTML={{ __html: recipeInfo.summary }} />
+                <LargeParagraph text={recipeInfo.summary}/>
               </div>
             </div>
 
             <div className="suggested-btns">
+              {/* <Link to={`/recipe-details/${recipeId}`}> */}
               <Link to={`/recipe-details/${recipeId}`}>
                 <Button
                   style={{
@@ -106,7 +108,15 @@ function SuggestedRecipe() {
                   }}
                   variant="contained"
                   onClick={() => {
-                    console.log("Get another recipe");
+                    const jsConfetti = new JSConfetti();
+                    jsConfetti.addConfetti({
+                      emojis: ["🥕", "🌽", "🍇", "🍅", "🍒", "🍐"],
+                      emojiSize: 50,
+                      confettiRadius: 8,
+                      confettiNumber: 400,
+                    });
+
+                    jsConfetti.addConfetti();
                   }}
                 >
                   YES I LIKE THIS<CaretRightFill></CaretRightFill>

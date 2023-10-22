@@ -29,11 +29,12 @@ const slugify = (ingredientName) => {
 
 const IngredientsForm = () => {
   const navigate = useNavigate();
+  const [ingredients, setIngredients] = useState([]); // this is populated by data from our own backend
 
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [submittedOptions, setSubmittedOptions] = useState([]);
-
-  const [ingredients, setIngredients] = useState([]);
+  const [recipeId, setRecipeId] = useState(null);
+  const [repipeApiError, setRecipeApiError] = useState(false);
 
   useEffect(() => {
     axios
@@ -69,13 +70,11 @@ const IngredientsForm = () => {
       .get((url = url), (headers = headers))
       .then((response) => {
         // TODO what if it doesn't return a recipe
-        //choose last recipe in array to vary returned recipe
-        let lastrecipe = (response.data.length-1);
-        console.log(lastrecipe)
-        navigate(`/suggested-recipe/${response.data[lastrecipe]["id"]}`);
+        navigate(`/suggested-recipe/${response.data[0]["id"]}`);
       })
       .catch((error) => {
         console.log("There was an error and here it is: ", error);
+        setRecipeApiError(true);
       });
   };
 
@@ -132,6 +131,9 @@ const IngredientsForm = () => {
           <CaretRightFill></CaretRightFill>
         </Button>
       </form>
+      {repipeApiError ? (
+        <div>There's been a problem. Please try again.</div>
+      ) : null}
     </div>
   );
 };

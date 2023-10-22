@@ -2,8 +2,9 @@ import { React, useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { usePassageUserInfo } from "../hooks/";
 import { PlusCircle, CaretLeftFill } from "react-bootstrap-icons";
-import Button from "@mui/material/Button";
 import axios from "axios";
+import LogInPrompt from "../components/Alerts/LogInPrompt";
+import RecipeSavedAlert from "../components/Alerts/RecipeSavedAlert";
 
 import { useMyContext } from '../components/MyContext';
 
@@ -14,6 +15,8 @@ const SPOON_API_URL = "https://api.spoonacular.com";
 
 function RecipeDetails() {
   const { userInfo, loading } = usePassageUserInfo();
+  const [ showAlert, setShowAlert ] = useState(false);
+  const [ recipeSavedAlert, setRecipeSavedAlert ] = useState(false);
   const { recipeId } = useParams();
   const [recipeInfo, setRecipeInfo] = useState([]);
   const { GlobalRecipeID, setGlobalRecipeID } = useMyContext();
@@ -48,14 +51,20 @@ function RecipeDetails() {
         .post("/save_recipe", data)
         .then((response) => {
           console.log("Response data:", response.data);
+          setRecipeSavedAlert(true)
         })
         .catch((error) => {
           console.error("Error:", error);
         });
     } else {
       console.log("should be logged out");
-      // TODO show please log in messaging
+      setShowAlert(true)
     }
+  };
+
+  const closeAlert = () => {
+    setShowAlert(false);
+    setRecipeSavedAlert(false);
   };
 
   document.body.style.backgroundColor = "#97bfd1";
@@ -67,6 +76,12 @@ function RecipeDetails() {
   ) {
     return (
       <>
+        { showAlert ? (
+          <LogInPrompt closeAlert={closeAlert}/>
+        ) : null }
+        { recipeSavedAlert ? (
+          <RecipeSavedAlert closeAlert={closeAlert}/>
+        ) : null }
         <div id="recipe-details-section">
           <div className="details">
             <div className="img-container">
@@ -106,7 +121,7 @@ function RecipeDetails() {
       </>
     );
   } else {
-    return ("not loaded yet");
+    return "not loaded yet";
   }
 }
 

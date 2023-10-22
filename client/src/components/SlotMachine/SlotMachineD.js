@@ -26,25 +26,16 @@ export default function SlotMachineD() {
   };
 
   return (
-    <div>
-        {
-            /*<Button variant="outlined" onClick={handleClickOpen}>
-        Open slot dialog
-      </Button>*/
-        }
-      
-
-        <DialogContent>
+    <div className="slotmachine-container">
+      <div>
+        
           <div className="slots">
             <div className="reel"></div>
             <div className="reel"></div>
             <div className="reel"></div>
           </div>
-
-          <div id="debug" className="debug"></div>
-
-        </DialogContent>
-
+        
+        </div>
 
     </div>
   );
