@@ -1,7 +1,4 @@
 import React from 'react'
-import { Link } from "react-router-dom";
-import { useCurrentUser } from '../hooks/useCurrentUser'
-import { PassageUser } from '@passageidentity/passage-elements/passage-user';
 import LogoutButton from './LogOutButton';
 import { useMyContext } from './MyContext';
 //updated navbar for recipe details to use the global variable GlobalRecipeID where the recipeID is stored and updated

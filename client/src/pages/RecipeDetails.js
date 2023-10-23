@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { usePassageUserInfo } from "../hooks/";
-import { PlusCircle, CaretLeftFill } from "react-bootstrap-icons";
+import { PlusCircle } from "react-bootstrap-icons";
 import axios from "axios";
 import LogInPrompt from "../components/Alerts/LogInPrompt";
 import RecipeSavedAlert from "../components/Alerts/RecipeSavedAlert";
